@@ -1,0 +1,355 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Tahoma;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+body {
+  background-image: url(./images/ring.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+
+.inactive {
+  visibility: hidden;
+  display: none;
+}
+
+header.simple {
+  height: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-game {
+  font-family: Tahoma;
+  font-size: 5rem;
+  font-weight: 300px;
+}
+
+h1 {
+  font-family: Tahoma;
+  font-size: 4.5rem;
+  font-weight: 300px;
+}
+
+.core.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+
+.core.row button {
+  height: 120px;
+  width: 200px;
+  padding: 0px 30px;
+  margin: 0 80px;
+  background: rgba(255, 166, 43, 0.5);
+  border: 6px #db6400 solid;
+  border-radius: 20%;
+}
+
+.core.row button a {
+  text-decoration: none;
+  font-size: 1.3rem;
+  color: black;
+  font-weight: bold;
+}
+
+/* MENU RULES */
+
+.details {
+  margin: 0px 100px 0 40px;
+  padding: 30px 40px;
+  border-radius: 5%;
+  border: 6px #db6400 solid;
+  background: rgba(255, 166, 43, 0.5);
+  line-height: 20px;
+}
+
+.gauche {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 40px 0 100px;
+}
+
+.punches {
+  margin: 0px 0px 30px 0;
+  padding: 20px 20px;
+  border-radius: 10%;
+  border: 6px #db6400 solid;
+  background: rgba(255, 166, 43, 0.5);
+  width: 18vw;
+}
+
+button#gotit {
+  background: rgba(255, 166, 43, 0.5);
+  border: 6px #db6400 solid;
+  border-radius: 20%;
+  height: auto;
+  width: 100px;
+  margin: 0;
+  padding: 0 10px;
+}
+
+button#gotit a {
+  font-size: 1.1rem;
+}
+
+/* MENU SIGN IN */
+
+.core.col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 75vh;
+}
+
+form {
+  text-align: center;
+  width: 80vw;
+  height: 80px;
+}
+
+form input {
+  height: 50px;
+  outline: none;
+  padding: 5px;
+  width: 70%;
+  background: #fff3e2;
+  border: 6px #db6400 solid;
+  border-radius: 10%;
+}
+
+form button {
+  height: 50px;
+  width: 120px;
+  margin: 0 0 0 10px;
+  background: #fff3e2;
+  border: 6px #db6400 solid;
+  border-radius: 20%;
+}
+
+form a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: black;
+  font-weight: bold;
+  padding: 0 5px;
+}
+
+.annonce {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.annonce span {
+  color: #af2d2d;
+  font-weight: bold;
+  font-size: 3.2rem;
+}
+
+/* MEMORIZE */
+
+header.full {
+  justify-content: space-around;
+  height: 25vh;
+  display: flex;
+  align-items: center;
+}
+
+table tbody tr td {
+  border: solid 3px black;
+  border-collapse: collapse;
+  padding: 5px 20px;
+  text-align: center;
+}
+
+td.red {
+  color: #af2d2d;
+}
+
+.timer {
+  display: flex;
+}
+
+i {
+  font-size: 2em;
+  padding: 0 5px;
+}
+
+aside {
+  font-size: 1.1rem;
+  padding: 0px 5px;
+}
+
+.core.ver {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+
+.combination {
+  display: flex;
+  width: 80vw;
+  justify-content: center;
+  margin: 50px;
+}
+
+.combination .punch {
+  background-color: #f05454;
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  margin: 0px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+.memorize button {
+  height: 10vh;
+  width: 80px;
+  margin: 0 80px;
+  background: rgba(255, 166, 43, 0.5);
+  border: 6px #db6400 solid;
+  border-radius: 20%;
+  font-size: 1.1rem;
+  color: black;
+}
+
+/* FIGHT */
+
+/* .fight {
+  position: absolute;
+  top: 0;
+  left: 40vw;
+} */
+
+/* .fight {
+  height: 75vh;
+} */
+
+/* .core.libre {
+  height: 75vw;
+} */
+
+/* .player.red {
+  position: absolute;
+  top: 13vw;
+  left: 25vw;
+} */
+
+/* .player.black {
+  position: absolute;
+  bottom: 0vh;
+  left: 40vw;
+} */
+
+.player.red img {
+  height: 55vh;
+  width: auto;
+  position: absolute;
+  top: 13vw;
+  left: 25vw;
+}
+
+.player.black img {
+  position: absolute;
+  bottom: 0vh;
+  left: 40vw;
+  height: 65vh;
+  width: auto;
+}
+
+.combination.memorize.col {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 83vw;
+  justify-content: space-between;
+}
+
+.combination.memorize.col .punch {
+  background-color: #f05454;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  margin: 10px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* AVANTAGE */
+
+.player.pose.black {
+  position: absolute;
+  bottom: 0vh;
+  left: 40vw;
+  height: 75vh;
+  width: auto;
+}
+
+.player.pose.red {
+  position: absolute;
+  bottom: 0vh;
+  left: 40vw;
+  height: 75vh;
+  width: auto;
+}
+
+/* WINNER */
+
+.player.winner.black {
+  position: absolute;
+  bottom: 0vh;
+  left: 45vw;
+  height: 80vh;
+  width: auto;
+}
+
+.player.looser.red {
+  position: absolute;
+  bottom: 13vh;
+  left: 25vw;
+  height: 65vh;
+  width: auto;
+}
+
+.player.winner.red {
+  position: absolute;
+  bottom: 0vh;
+  left: 38vw;
+  height: 80vh;
+  width: auto;
+}
+
+.player.looser.black {
+  position: absolute;
+  bottom: 13vh;
+  left: 20vw;
+  height: 65vh;
+  width: auto;
+}
