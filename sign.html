@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign in</title>
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-    />
+    /> -->
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -18,14 +18,18 @@
     <div class="core col">
       <form class="signin-form" action="/register" method="post">
         <label for="name"></label>
-        <input type="text" placeholder="What's your name ?" />
+        <input
+          type="text"
+          placeholder="What's your name ?"
+          onkeyup="playername.innerHTML=this.value"
+        />
         <button type="submit">
-          <a href="./fight.html">Let's fight !</a>
+          <a id="lets-fight-button" href="./fight.html">Let's fight !</a>
         </button>
       </form>
 
       <div class="annonce">
-        <h2>XXXX</h2>
+        <h2 id="playername"></h2>
         <span>VS</span>
         <h2>Chad 'Blitz' Hawkes</h2>
       </div>

@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fight</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-    />
+    <script type="module" src="./index.js"></script>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -24,7 +21,7 @@
         </tbody>
       </table>
 
-      <h1 class="memorize">Memorize</h1>
+      <h1 class="memorize"></h1>
       <!-- <h1 class="fight inactive">Time to fight</h1>
       <h1 class="round black inactive">Round 1 dominated by Player’s name</h1>
       <h1 class="winner black inactive">
@@ -33,30 +30,30 @@
 
       <div class="timer">
         <i class="fas fa-stopwatch"></i>
-        <aside class="counter">10</aside>
+        <aside class="counter"></aside>
       </div>
     </header>
 
     <!-- 4eme partie - winner -->
     <!-- <div class="core libre inactive"> -->
     <img
-      class="player red winner"
-      src="../1-Boxing game/images/win-red.png"
+      class="player red winner inactive"
+      src="./images/win-red.png"
       alt="red-player-fighting"
     />
     <img
       class="player red looser inactive"
-      src="../1-Boxing game/images/loose-red.png"
+      src="./images/loose-red.png"
       alt="red-player-fighting"
     />
     <img
       class="player black winner inactive"
-      src="../1-Boxing game/images/win-black.png"
+      src="./images/win-black.png"
       alt="red-player-fighting"
     />
     <img
-      class="player black looser"
-      src="../1-Boxing game/images/loose-black.png"
+      class="player black looser inactive"
+      src="./images/loose-black.png"
       alt="red-player-fighting"
     />
     <!-- </div> -->
@@ -65,52 +62,48 @@
     <!-- <div class="core libre inactive"> -->
     <img
       class="player red pose inactive"
-      src="../1-Boxing game/images/pose-red.png"
+      src="./images/pose-red.png"
       alt="red-player-fighting"
     />
     <img
       class="player black pose inactive"
-      src="../1-Boxing game/images/pose-black.png"
+      src="./images/pose-black.png"
       alt="red-player-fighting"
     />
     <!-- </div> -->
 
     <!-- 2eme partie - combat -->
     <!-- <div class="core libre"> -->
-    <div class="player red inactive">
-      <img
-        src="../1-Boxing game/images/fight-red.png"
-        alt="red-player-fighting"
-      />
+    <div class="player red fight inactive">
+      <img src="./images/fight-red.png" alt="red-player-fighting" />
     </div>
-    <div class="player black inactive">
-      <img
-        src="../1-Boxing game/images/fight-black.png"
-        alt="black-player-fighting"
-      />
+    <div class="player black fight inactive">
+      <img src="./images/fight-black.png" alt="black-player-fighting" />
     </div>
-    <div class="combination memorize col inactive">
-      <div class="punch memorize">1</div>
-      <div class="punch memorize">1</div>
-      <div class="punch memorize">3</div>
-      <div class="punch memorize">2</div>
-      <div class="punch memorize">2</div>
-      <div class="punch memorize">4</div>
+    <div id="fight" class="combi memorize col inactive">
+      <div class="punch memorize"></div>
+      <div class="punch memorize"></div>
+      <div class="punch memorize"></div>
+      <div class="punch memorize"></div>
+      <div class="punch memorize"></div>
+      <div class="punch memorize"></div>
+      <div class="punch memorize"></div>
     </div>
     <!-- </div> -->
 
     <!-- 1ere partie - mémorisation combinaison -->
-    <div class="core ver memorize inactive">
-      <h2 class="memorize">Round 1</h2>
+    <div id="memorize" class="core ver memorize">
+      <h2 class="memorize"></h2>
       <div class="combination memorize">
-        <div class="punch memorize">1</div>
-        <div class="punch memorize">1</div>
-        <div class="punch memorize">3</div>
-        <div class="punch memorize">2</div>
-        <div class="punch memorize">2</div>
-        <div class="punch memorize">4</div>
+        <div class="punch memorize inactive"></div>
+        <div class="punch memorize inactive"></div>
+        <div class="punch memorize inactive"></div>
+        <div class="punch memorize inactive"></div>
+        <div class="punch memorize inactive"></div>
+        <div class="punch memorize inactive"></div>
+        <div class="punch memorize inactive"></div>
       </div>
-      <button class="memorize">Go !</button>
+      <button class="memorize inactive">Go !</button>
     </div>
   </body>
 </html>

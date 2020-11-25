@@ -16,11 +16,12 @@ body {
   background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;
+  /* cursor: url(http://www.rw-designer.com/cursor-extern.php?id=70156); */
 }
 
 .inactive {
-  visibility: hidden;
   display: none;
+  visibility: hidden;
 }
 
 header.simple {
@@ -208,9 +209,15 @@ aside {
 
 .combination {
   display: flex;
-  width: 80vw;
   justify-content: center;
-  margin: 50px;
+  width: 80vw;
+  margin: 50px 0;
+}
+
+.combi {
+  display: flex;
+  justify-content: center;
+  right: 20vw;
 }
 
 .combination .punch {
@@ -241,32 +248,6 @@ h2 {
 
 /* FIGHT */
 
-/* .fight {
-  position: absolute;
-  top: 0;
-  left: 40vw;
-} */
-
-/* .fight {
-  height: 75vh;
-} */
-
-/* .core.libre {
-  height: 75vw;
-} */
-
-/* .player.red {
-  position: absolute;
-  top: 13vw;
-  left: 25vw;
-} */
-
-/* .player.black {
-  position: absolute;
-  bottom: 0vh;
-  left: 40vw;
-} */
-
 .player.red img {
   height: 55vh;
   width: auto;
@@ -283,15 +264,15 @@ h2 {
   width: auto;
 }
 
-.combination.memorize.col {
+.combi.memorize.col {
   display: flex;
   flex-direction: column;
   position: absolute;
-  left: 83vw;
+  right: 10vw;
   justify-content: space-between;
 }
 
-.combination.memorize.col .punch {
+.combi.memorize.col .punch {
   background-color: #f05454;
   border-radius: 100%;
   width: 40px;
