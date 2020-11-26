@@ -42,6 +42,16 @@ const jab = () => {
   }
 };
 
+const choc = () => {
+  playSound(chocsound);
+  redFighter.innerHTML =
+    '<img src="./images/jab-red.png" alt="red-jab-fighting" />';
+  setTimeout(() => {
+    redFighter.innerHTML =
+      '<img src="./images/fight-red.png" alt="red-player-fighting" />';
+  }, 300);
+};
+
 // FUNCTION UNDISPLAY FIGHT
 function undisplayFight() {
   const divFight = document.getElementById("fight");
@@ -340,11 +350,11 @@ function badKey() {
   if (combiIndex !== combi.length - 1) {
     scoreRed++;
     combiIndex++;
-    playSound(chocsound);
+    choc();
     printResultRed(combiIndex);
   } else {
     scoreRed = combi.length - scoreBlack;
-    playSound(chocsound);
+    choc();
     printResultRed(combiIndex);
     winRound();
     matchover();
