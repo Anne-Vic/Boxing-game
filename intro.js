@@ -1,16 +1,19 @@
+// const playSound = (url) => new Audio(url).play();
+
+// function playrumble() {
+//   // const title = document.querySelector(".title-game");
+//   const rumble = "./audio/lets-rumble.mp3";
+//   // title.onmouseover = function () {
+//   rumble.play();
+//   // };
+// }
+
 const playSound = (url) => new Audio(url).play();
-
-function playrumble() {
-  const title = document.querySelector(".title-game");
-  const rumble = "./audio/lets-rumble.mp3";
-  title.onmouseover = function () {
-    rumble.play();
-  };
-}
-
-// playrumble();
+const title = document.querySelector(".title-game");
+const rumble = "./audio/lets-rumble.mp3";
 
 // title.onmouseover = playSound(rumble);
 
-// const startButton = document.getElementById("btn-start");
-// startButton.addEventListener("click", () => play(rumble));
+// console.log("toto");
+
+playSound(rumble);

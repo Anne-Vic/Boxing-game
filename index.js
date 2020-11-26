@@ -19,16 +19,27 @@ const ring = "./audio/Boxing-bell.mp3";
 const rumble = "./audio/lets-rumble.mp3";
 const victoire = "./audio/Victoire.mp3";
 const jabsound = "./audio/Punch-2.mp3";
-const choc = "./audio/coup-ventre.mp3";
+const chocsound = "./audio/coup-ventre.mp3";
 
 const playSound = (url) => new Audio(url).play();
 
 const jab = () => {
   playSound(jabsound);
-  blackFighter.setAttribute("src", "./images/jab-black.png");
-  // setTimeout(blackFighter.setAttribute("src", "./images/fight-black.png"),
-  //   1000
-  // );
+  if (combi[combiIndex] % 2 === 0) {
+    blackFighter.innerHTML =
+      '<img src="./images/jab-black.png" alt="black-jab-fighting" />';
+    setTimeout(() => {
+      blackFighter.innerHTML =
+        '<img src="./images/fight-black.png" alt="black-player-fighting" />';
+    }, 300);
+  } else {
+    blackFighter.innerHTML =
+      '<img src="./images/hook-black.png" alt="black-hook-fighting" />';
+    setTimeout(() => {
+      blackFighter.innerHTML =
+        '<img src="./images/fight-black.png" alt="black-player-fighting" />';
+    }, 300);
+  }
 };
 
 // FUNCTION UNDISPLAY FIGHT
@@ -114,6 +125,8 @@ function appendCombi() {
       div.style.display = "none";
     }
   });
+  // const sousDivMemory = document.querySelector("#memorize combination");
+  // divMemory.classList.remove("inactive");
 }
 
 // const checkCombi = (event) => {
@@ -147,6 +160,8 @@ const checkCombi = (event) => {
 const undisplayDivMemorize = () => {
   const divMemory = document.getElementById("memorize");
   divMemory.classList.add("inactive");
+  // const sousDivMemory = document.querySelector("#memorize combination");
+  // divMemory.classList.add("inactive");
 };
 
 const displayTitleFight = () => {
@@ -160,8 +175,9 @@ const displayFighter = () => {
   [...divPlayers, divFight].forEach(function (element) {
     element.classList.remove("inactive");
   });
-  [...divFight].forEach(function (element) {
-    element.textContent = "";
+  const divFightDetail = document.querySelectorAll("#fight .punch");
+  divFightDetail.forEach(function (element) {
+    element.innerHTML = "";
   });
 };
 
@@ -171,8 +187,14 @@ const displayMemorize = () => {
   headTitle.innerHTML = "Memorize";
   const divMemory = document.getElementById("memorize");
   divMemory.classList.remove("inactive");
-  // divPunch.classList.remove("inactive");
-  // divPunch.textContent = "";
+  // const divPunch = document.querySelectorAll("#memorize .punch.memorize");
+  // divPunch.classList.add("inactive");
+  const recapRound = document.querySelector("td");
+  recapRound.innerHTML = "Round " + round;
+  const disScoreB = document.querySelector("table .black");
+  disScoreB.innerHTML = 0;
+  const disScoreR = document.querySelector("table .red");
+  disScoreR.innerHTML = 0;
 };
 
 const displayRound = () => {
@@ -318,11 +340,11 @@ function badKey() {
   if (combiIndex !== combi.length - 1) {
     scoreRed++;
     combiIndex++;
-    playSound(choc);
+    playSound(chocsound);
     printResultRed(combiIndex);
   } else {
     scoreRed = combi.length - scoreBlack;
-    playSound(choc);
+    playSound(chocsound);
     printResultRed(combiIndex);
     winRound();
     matchover();
@@ -334,4 +356,4 @@ goButton.addEventListener("click", () => displayFight());
 
 document.addEventListener("keydown", checkCombi);
 
-if (startButton !== null) startButton.addEventListener("click", playRumble);
+// if (startButton !== null) startButton.addEventListener("click", playRumble);
