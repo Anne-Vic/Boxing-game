@@ -7,12 +7,14 @@ var scoreBlack = 0;
 var winRoundRed = 0;
 var winRoundBlack = 0;
 var keyAllowed = ["Digit1", "Digit2", "Digit3", "Digit4", "Digit5", "Digit6"];
-const goButton = document.querySelector("#memorize button");
+// const goButton = document.querySelector("#memorize button");
 const divPunch = document.querySelectorAll("#memorize .punch.memorize");
 const disScoreRed = document.querySelector("td .red");
 const disScoreBlack = document.querySelector("td .black");
 const redFighter = document.querySelector(".fight.red");
 const blackFighter = document.querySelector(".fight.black");
+const blackPose = document.querySelector(".pose.black");
+const redPose = document.querySelector(".pose.red");
 
 // AUDIO
 const ring = "./audio/Boxing-bell.mp3";
@@ -23,6 +25,7 @@ const chocsound = "./audio/coup-ventre.mp3";
 
 const playSound = (url) => new Audio(url).play();
 
+// FUNCTION JAB (MVT + SON)
 const jab = () => {
   playSound(jabsound);
   if (combi[combiIndex] % 2 === 0) {
@@ -42,6 +45,7 @@ const jab = () => {
   }
 };
 
+// FUNCTION CHOC (MVT + SON)
 const choc = () => {
   playSound(chocsound);
   redFighter.innerHTML =
@@ -61,15 +65,7 @@ function undisplayFight() {
   });
 }
 
-// FUNCTION RESET
-// const reset = () => {
-//   scoreRed.textContent = "";
-//   scoreblack.textContent = "";
-//   const testClearPunch = document.querySelector("#memorize .punch.memorize");
-//   testClearPunch.textContent = "";
-// };
-
-// FUNCTION DISPLAY CHAMION
+// FUNCTION DISPLAY CHAMPION
 function displayChampion() {
   setTimeout(() => {
     // DISPLAY SCORE + MUSIC
@@ -95,6 +91,8 @@ function displayChampion() {
   }, 500);
   setTimeout(() => {
     // DISPLAY BOXERS
+    const againButton = document.getElementById("btn-again");
+    againButton.classList.remove("inactive");
     if (winRoundBlack > winRoundRed) {
       const winnerBlack = document.querySelector(".winner.black");
       winnerBlack.classList.remove("inactive");
@@ -106,6 +104,10 @@ function displayChampion() {
       const looserBlack = document.querySelector(".looser.black");
       looserBlack.classList.remove("inactive");
     } else {
+      // const draw = document.querySelector("div .draw");
+      // draw.classList.remove("inactive");
+      // blackPose.classList.remove("inactive");
+      // redPose.classList.remove("inactive");
     }
   }, 1500);
 }
@@ -135,23 +137,11 @@ function appendCombi() {
       div.style.display = "none";
     }
   });
+  const divMemory = document.getElementById("memorize");
+  divMemory.classList.remove("inactive");
   // const sousDivMemory = document.querySelector("#memorize combination");
   // divMemory.classList.remove("inactive");
 }
-
-// const checkCombi = (event) => {
-//   console.log(event.code);
-//   console.log(combiIndex);
-//   if (event.code === "Digit" + combi[combiIndex]) {
-//     console.log("yes");
-//     goodKey();
-//   } else if (event.code === "CapsLock") {
-//     console.log("CAPSLOCK");
-//   } else {
-//     console.log("oups");
-//     badKey();
-//   }
-// };
 
 const checkCombi = (event) => {
   if (keyAllowed.includes(event.code)) {
@@ -195,8 +185,8 @@ const displayMemorize = () => {
   const headTitle = document.querySelector(".full h1");
   console.log(headTitle, "<<<");
   headTitle.innerHTML = "Memorize";
-  const divMemory = document.getElementById("memorize");
-  divMemory.classList.remove("inactive");
+  // const divMemory = document.getElementById("memorize");
+  // divMemory.classList.remove("inactive");
   // const divPunch = document.querySelectorAll("#memorize .punch.memorize");
   // divPunch.classList.add("inactive");
   const recapRound = document.querySelector("td");
@@ -227,7 +217,7 @@ const setChrono = (callback, interval, l) => {
   }, interval);
 };
 
-const toggleGoBtnActive = () => goButton.classList.toggle("inactive");
+// const toggleGoBtnActive = () => goButton.classList.toggle("inactive");
 
 // 1 // DISPLAY MEMORISE PART // CLEAR INTERVAL A FAIRE
 function launch() {
@@ -236,29 +226,13 @@ function launch() {
   setTimeout(displayRound, 1000);
   setTimeout(() => {
     appendCombi();
-    toggleGoBtnActive();
+    // toggleGoBtnActive();
     setChrono(
       () => {
-        // chrono memorize
         displayFight(() => {
           setChrono(
             () => {
-              // chrono fight
-              // check result ?
-              console.log(
-                "round =" +
-                  round +
-                  " " +
-                  scoreRed +
-                  " " +
-                  scoreBlack +
-                  " " +
-                  winRoundRed +
-                  " " +
-                  winRoundBlack
-              );
               checkCombi();
-              console.log("SHOULD CHECK RESULT HERE");
               launch();
             },
             1000,
@@ -279,8 +253,8 @@ function winRound() {
   if (scoreBlack === scoreRed) {
     scoreBlack = 0;
     scoreRed = 0;
-    disScoreRed.textContent = "";
-    disScoreBlack.textContent = "";
+    // disScoreRed.textContent = "";
+    // disScoreBlack.textContent = "";
     round++;
   } else {
     scoreBlack > scoreRed ? winRoundBlack++ : winRoundRed++;
@@ -295,11 +269,11 @@ function matchover() {
   if (round < 6) {
     combiIndex = 0;
     // reset();
-    launch();
+    setTimeout(launch, 1000);
   } else {
     // reset();
-    undisplayFight();
-    displayChampion();
+    setTimeout(undisplayFight, 1000);
+    setTimeout(displayChampion, 1000);
   }
 }
 
@@ -331,7 +305,7 @@ function goodKey() {
   } else {
     scoreBlack++;
     jab();
-    printResultBlack(combiIndex);
+    printResultBlack(combiIndex + 1);
     winRound();
     matchover();
   }
@@ -355,15 +329,15 @@ function badKey() {
   } else {
     scoreRed = combi.length - scoreBlack;
     choc();
-    printResultRed(combiIndex);
+    printResultRed(combiIndex + 1);
     winRound();
     matchover();
   }
 }
 
 // EVENT LISTENER
-goButton.addEventListener("click", () => displayFight());
+// goButton.addEventListener("click", () => displayFight());
 
-document.addEventListener("keydown", checkCombi);
+document.addEventListener("keyup", checkCombi);
 
 // if (startButton !== null) startButton.addEventListener("click", playRumble);

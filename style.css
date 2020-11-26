@@ -340,3 +340,24 @@ h2 {
   height: 65vh;
   width: auto;
 }
+
+#btn-again {
+  height: 15vh;
+  width: 100px;
+  margin: 0 80px;
+  background: rgba(255, 166, 43, 0.5);
+  border: 6px #db6400 solid;
+  border-radius: 20%;
+  font-size: 1.1rem;
+  color: black;
+  position: absolute;
+  bottom: 5vh;
+  right: 10vw;
+}
+
+#btn-again a {
+  text-decoration: none;
+  font-size: 1.3rem;
+  color: black;
+  font-weight: bold;
+}
