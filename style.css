@@ -5,7 +5,7 @@
 }
 
 html {
-  font-family: Tahoma;
+  font-family: "Merriweather Sans", sans-serif;
   font-size: 1.1rem;
   font-weight: bold;
 }
@@ -32,13 +32,15 @@ header.simple {
 }
 
 .title-game {
-  font-family: Tahoma;
+  font-family: "Bungee Inline", cursive;
   font-size: 5rem;
   font-weight: 300px;
+  text-shadow: 7px 7px #e6a721;
+  color: #0c0529;
 }
 
 h1 {
-  font-family: Tahoma;
+  font-family: "Tahoma";
   font-size: 4.5rem;
   font-weight: 300px;
 }
@@ -54,7 +56,7 @@ h1 {
   height: 120px;
   width: 200px;
   padding: 0px 30px;
-  margin: 0 80px;
+  margin: 0 55px;
   background: rgba(255, 166, 43, 0.5);
   border: 6px #db6400 solid;
   border-radius: 20%;
@@ -285,19 +287,23 @@ h2 {
 
 /* AVANTAGE */
 
-.player.pose.black {
+#player-black-intro {
   position: absolute;
   bottom: 0vh;
-  left: 40vw;
-  height: 75vh;
+  right: 10vw;
+  height: 80vh;
   width: auto;
 }
 
-.player.pose.red {
+#player-black-intro img {
+  height: 80vh;
+}
+
+#player-red-intro {
   position: absolute;
-  bottom: 0vh;
-  left: 40vw;
-  height: 75vh;
+  bottom: 10vh;
+  left: 7vw;
+  height: 80vh;
   width: auto;
 }
 

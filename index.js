@@ -10,6 +10,25 @@ const goButton = document.querySelector("#memorize button");
 const divPunch = document.querySelectorAll("#memorize .punch.memorize");
 const disScoreRed = document.querySelector("td .red");
 const disScoreBlack = document.querySelector("td .black");
+const redFighter = document.querySelector(".fight.red");
+const blackFighter = document.querySelector(".fight.black");
+
+// AUDIO
+const ring = "./audio/Boxing-bell.mp3";
+const rumble = "./audio/lets-rumble.mp3";
+const victoire = "./audio/Victoire.mp3";
+const jabsound = "./audio/Punch-2.mp3";
+const choc = "./audio/coup-ventre.mp3";
+
+const playSound = (url) => new Audio(url).play();
+
+const jab = () => {
+  playSound(jabsound);
+  blackFighter.setAttribute("src", "./images/jab-black.png");
+  // setTimeout(blackFighter.setAttribute("src", "./images/fight-black.png"),
+  //   1000
+  // );
+};
 
 // FUNCTION UNDISPLAY FIGHT
 function undisplayFight() {
@@ -31,13 +50,14 @@ function undisplayFight() {
 // FUNCTION DISPLAY CHAMION
 function displayChampion() {
   setTimeout(() => {
-    // DISPLAY SCORE
+    // DISPLAY SCORE + MUSIC
     const scoreTitle = document.querySelector("td");
     scoreTitle.textContent = "Rounds";
     const disScoreRed = document.querySelector("table .red");
     disScoreRed.textContent = winRoundRed;
     const disScoreBlack = document.querySelector("table .black");
     disScoreBlack.textContent = winRoundBlack;
+    playSound(victoire);
     // DISPLAY NAME
     if (winRoundBlack > winRoundRed) {
       const headTitle = document.querySelector(".full h1");
@@ -64,9 +84,8 @@ function displayChampion() {
       const looserBlack = document.querySelector(".looser.black");
       looserBlack.classList.remove("inactive");
     } else {
-      //  BOXER POSE ? CENTRER ?
     }
-  }, 1000);
+  }, 1500);
 }
 
 // 0A // FUNCTION RANDOM COMBI
@@ -196,12 +215,12 @@ function launch() {
               launch();
             },
             1000,
-            11
+            9
           );
         });
       },
       1500,
-      5
+      3
     );
   }, 1500);
 }
@@ -240,6 +259,7 @@ function matchover() {
 // 2 // DISPLAY FIGHT // CHANGER TIMEOUT
 function displayFight(callback) {
   undisplayDivMemorize();
+  playSound(ring);
   setTimeout(displayTitleFight, 500);
   setTimeout(displayFighter, 1000);
   if (callback) callback();
@@ -259,9 +279,11 @@ function goodKey() {
   if (combiIndex !== combi.length - 1) {
     scoreBlack++;
     combiIndex++;
+    jab();
     printResultBlack(combiIndex);
   } else {
     scoreBlack++;
+    jab();
     printResultBlack(combiIndex);
     winRound();
     matchover();
@@ -281,9 +303,11 @@ function badKey() {
   if (combiIndex !== combi.length - 1) {
     scoreRed++;
     combiIndex++;
+    playSound(choc);
     printResultRed(combiIndex);
   } else {
     scoreRed = combi.length - scoreBlack;
+    playSound(choc);
     printResultRed(combiIndex);
     winRound();
     matchover();
