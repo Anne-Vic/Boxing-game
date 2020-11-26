@@ -6,6 +6,7 @@ var scoreRed = 0;
 var scoreBlack = 0;
 var winRoundRed = 0;
 var winRoundBlack = 0;
+var keyAllowed = ["Digit1", "Digit2", "Digit3", "Digit4", "Digit5", "Digit6"];
 const goButton = document.querySelector("#memorize button");
 const divPunch = document.querySelectorAll("#memorize .punch.memorize");
 const disScoreRed = document.querySelector("td .red");
@@ -115,17 +116,31 @@ function appendCombi() {
   });
 }
 
+// const checkCombi = (event) => {
+//   console.log(event.code);
+//   console.log(combiIndex);
+//   if (event.code === "Digit" + combi[combiIndex]) {
+//     console.log("yes");
+//     goodKey();
+//   } else if (event.code === "CapsLock") {
+//     console.log("CAPSLOCK");
+//   } else {
+//     console.log("oups");
+//     badKey();
+//   }
+// };
+
 const checkCombi = (event) => {
-  console.log(event.code);
-  console.log(combiIndex);
-  if (event.code === "Digit" + combi[combiIndex]) {
-    console.log("yes");
-    goodKey();
-  } else if (event.code === "CapsLock") {
-    console.log("CAPSLOCK");
+  if (keyAllowed.includes(event.code)) {
+    if (event.code === "Digit" + combi[combiIndex]) {
+      console.log("yes");
+      goodKey();
+    } else {
+      console.log("oups");
+      badKey();
+    }
   } else {
-    console.log("oups");
-    badKey();
+    console.log("not a key allowed");
   }
 };
 
